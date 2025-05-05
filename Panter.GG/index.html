@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panter.GG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="scriptsheet" href="script.js">
+    <link rel="icon" type="image/png" href="imagens/icon.png">
+</head>
+<body>
+    <section class="intro">
+        <h2>Conheça o Panter.GG 🐾</h2>
+        <p>O seu bot oficial para tudo sobre as partidas de League of Legends da FURIA Esports.</p>
+        <p>Se você respira FURIA, o Panter.GG é sua nova companhia de jogo. Aqui, você fica por dentro de tudo que importa, como: </p>
+        <ul>
+            <li><strong>Pré-jogo:</strong> escalações, expectativas e análise do confronto.</li>
+            <li><strong>Ao vivo:</strong> atualizações em tempo real, estatísticas e momentos chave.</li>
+            <li><strong>Pós-jogo:</strong> resumo completo, destaques da partida e próximos passos no campeonato.</li>
+        </ul>
+        <p>Sempre disponível, sempre torcendo — como um verdadeiro pantera da arquibancada virtual.</p>
+        <p><strong>Panter.GG</strong> é mais que um bot. É voz da torcida. É FURIA na veia, no teclado e no Summoner's Rift.</p>
+        <p class="hashtags">#GoFURIA #PanterGG</p>
+    </section>
+
+    <main class="chat-container">
+        <div id="chatlog" class="chat-log">
+            <div class="bot-message">
+                <span class="bot-name">Panter.GG:</span>
+                Olá, Furiano! Pronto para mais uma vitória da FURIA?
+            </div>
+        </div>
+
+        <form id="chat-form" class="chat-form">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem..." autocomplete="off" required />
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+
+    <footer class="chat-footer">
+        <p>&copy; 2025 Panter.GG | site de uma torcedora e futura colaboradora da FURIA Esports</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('chat-form');
+        const input = document.getElementById('user-input');
+        const chatlog = document.getElementById('chatlog');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const userMessage = input.value.trim();
+            if (!userMessage) return;
+
+            const userDiv = document.createElement('div');
+            userDiv.classList.add('user-message');
+            userDiv.innerHTML = `<span class="user-name">Você:</span> ${userMessage}`;
+            chatlog.appendChild(userDiv);
+
+            const botResponse = await fetch("http://127.0.0.1:5000/mensagem", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ mensagem: userMessage })
+            });
+            const data = await botResponse.json();
+
+            const botDiv = document.createElement('div');
+            botDiv.classList.add('bot-message');
+            botDiv.innerHTML = `<span class="bot-name">Panter.GG:</span> ${data.resposta}`;
+            chatlog.appendChild(botDiv);
+
+            input.value = '';
+            chatlog.scrollTop = chatlog.scrollHeight;
+        });
+    </script>
+</body>
+</html>
