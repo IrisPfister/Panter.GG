@@ -1,13 +1,13 @@
 /* Reset básico */
 *,
 *::before,
-*::after { /* Adicionando pseudo-elementos para reset */
+*::after { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Variáveis de cores e fontes */
+/* cores e fontes */
 :root {
     --preto: #0a0a0a;
     --cinza-escuro: #1a1a1a;
@@ -17,10 +17,10 @@
     --fundo-chat: #121212;
     --borda: #2a2a2a;
     --dourado-gradiente: linear-gradient(90deg, #ffd700, #ffb700);
-    --fonte: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Incluindo mais opções de fallback */
+    --fonte: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Estilos do corpo */
+/* corpo */
 body {
     background-color: var(--preto);
     color: var(--texto);
@@ -28,16 +28,16 @@ body {
     line-height: 1.5;
 }
 
-/* Estilos do banner */
+/* banner */
 .banner img {
     width: 100%;
     max-height: 240px;
     object-fit: cover;
     border-bottom: 2px solid var(--dourado);
-    box-shadow: 0 0 12px rgba(241, 206, 6, 0.3); /* Tornando a cor do shadow mais clara */
+    box-shadow: 0 0 12px rgba(241, 206, 6, 0.3); 
 }
 
-/* Estilos do cabeçalho do chat */
+/* cabeçalho do chat */
 .chat-header {
     text-align: center;
     padding: 1.5rem 1rem;
@@ -57,7 +57,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Estilos da seção de introdução */
+/* seção de introdução */
 .intro {
     padding: 2rem;
     background-color: var(--fundo-chat);
@@ -69,14 +69,14 @@ body {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     background: var(--dourado-gradiente);
-    -webkit-background-clip: text; /* Adicionando os prefixos para melhor compatibilidade */
+    -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent;
     font-weight: 800;
 }
 
 .intro p,
-.intro li { /* Agrupando seletores para evitar repetição */
-    color: #ccc; /* Usando notação hexadecimal diretamente para cores comuns */
+.intro li {
+    color: #ccc; 
     font-size: 0.95rem;
 }
 
@@ -91,7 +91,7 @@ body {
     color: var(--dourado);
 }
 
-/* Estilos do container do chat */
+/* container do chat */
 .chat-container {
     display: flex;
     flex-direction: column;
@@ -101,10 +101,10 @@ body {
     border: 1px solid var(--borda);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 12px rgba(255, 215, 0, 0.1); /* Tornando a cor do shadow mais clara */
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.1); 
 }
 
-/* Estilos da área de mensagens do chat */
+/* área de mensagens do chat */
 .chat-log {
     flex: 1;
     padding: 1rem;
@@ -112,9 +112,9 @@ body {
     background-color: var(--fundo-chat);
 }
 
-/* Estilos das mensagens do usuário e do bot */
+/* mensagens do usuário e do bot */
 .user-message,
-.bot-message { /* Agrupando seletores */
+.bot-message { 
     margin-bottom: 1rem;
     padding: 0.75rem 1rem;
     border-radius: 6px;
@@ -123,27 +123,27 @@ body {
 
 .user-message {
     align-self: flex-end;
-    background-color: #ffee00; /* Cor mais vibrante para o usuário */
-    color: var(--preto); /* Texto preto para melhor contraste */
+    background-color: #ffee00; 
+    color: var(--preto); 
     text-align: right;
 }
 
 .bot-message {
     align-self: flex-start;
-    background-color: #242424; /* Cor mais escura para o bot */
-    color: #e0e0e0; /* Cor de texto mais clara para o bot */
+    background-color: #242424; 
+    color: #e0e0e0;
     border-left: 3px solid var(--dourado);
 }
 
-/* Estilos dos nomes do usuário e do bot */
+/* nomes do usuário e do bot */
 .user-name,
-.bot-name { /* Agrupando seletores */
+.bot-name { 
     font-weight: bold;
     margin-bottom: 0.3rem;
     font-size: 0.9rem;
 }
 
-/* Estilos do formulário de entrada do chat */
+/* formulário de entrada do chat */
 .chat-form {
     display: flex;
     padding: 1rem;
@@ -156,7 +156,7 @@ body {
     padding: 0.8rem;
     border: 1px solid #746e6e;
     border-radius: 5px;
-    background-color: #333; /* Cor de fundo mais escura para o input */
+    background-color: #333;
     color: var(--texto);
     margin-right: 0.5rem;
     font-size: 1rem;
@@ -165,7 +165,7 @@ body {
 .chat-form button {
     padding: 0.8rem 1.2rem;
     background: var(--dourado-gradiente);
-    color: var(--preto); /* Texto preto para melhor contraste no botão */
+    color: var(--preto);
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -177,12 +177,12 @@ body {
     transform: scale(1.05);
 }
 
-/* Estilos do rodapé do chat */
+/* rodapé do chat */
 .chat-footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.85rem;
-    color: #777; /* Cor mais clara para o texto do rodapé */
+    color: #777; 
     background-color: var(--cinza-escuro);
     border-top:  5px solid var(--borda);
 }
