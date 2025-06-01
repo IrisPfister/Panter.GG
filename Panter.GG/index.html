@@ -42,36 +42,37 @@
     </footer>
 
     <script>
-        const form = document.getElementById('chat-form');
-        const input = document.getElementById('user-input');
-        const chatlog = document.getElementById('chatlog');
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('user-input');
+    const chatlog = document.getElementById('chatlog');
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-            const userMessage = input.value.trim();
-            if (!userMessage) return;
+        const userMessage = input.value.trim();
+        if (!userMessage) return;
 
-            const userDiv = document.createElement('div');
-            userDiv.classList.add('user-message');
-            userDiv.innerHTML = `<span class="user-name">Você:</span> ${userMessage}`;
-            chatlog.appendChild(userDiv);
+        const userDiv = document.createElement('div');
+        userDiv.classList.add('user-message');
+        userDiv.innerHTML = `<span class="user-name">Você:</span> ${userMessage}`;
+        chatlog.appendChild(userDiv);
 
-            const botResponse = await fetch("http://127.0.0.1:5000/mensagem", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ mensagem: userMessage })
-            });
-            const data = await botResponse.json();
-
-            const botDiv = document.createElement('div');
-            botDiv.classList.add('bot-message');
-            botDiv.innerHTML = `<span class="bot-name">Panter.GG:</span> ${data.resposta}`;
-            chatlog.appendChild(botDiv);
-
-            input.value = '';
-            chatlog.scrollTop = chatlog.scrollHeight;
+        const botResponse = await fetch("http://127.0.0.1:5000/mensagem", { 
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ mensagem: userMessage })
         });
+        const data = await botResponse.json();
+
+        const botDiv = document.createElement('div');
+        botDiv.classList.add('bot-message');
+        botDiv.innerHTML = `<span class="bot-name">Panter.GG:</span> ${data.resposta}`;
+        chatlog.appendChild(botDiv);
+
+        input.value = '';
+        chatlog.scrollTop = chatlog.scrollHeight;
+    });
+</script>
     </script>
 </body>
 </html>
