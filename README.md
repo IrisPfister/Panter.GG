@@ -1,4 +1,4 @@
-# Panter.GG
+# Panter.GG 🖤
 Chatbot da Furia Esports
 Bem-vindo(a) ao Chatbot da Furia Esports, o Panter.GG! Este projeto foi desenvolvido com o objetivo de aprender e aplicar automações em Python para criar um assistente virtual interativo focado nos fãs do time de League of Legends da Furia.
 
@@ -18,7 +18,6 @@ Desenvolvi este projeto para aprender e colocar em prática automações em Pyth
 
 - HTML e CSS: Para a parte visual, o que você vê no navegador.
 - Python com Flask: A inteligência por trás das respostas do chatbot e da comunicação.
-- Venv: Para organizar todas as ferramentas que o Python usa.
 - BeautifulSoup4: Para "raspar" as informações da internet e trazer até você!
 Este projeto está em constante evolução, assim como a Furia busca sempre a vitória! A cada nova funcionalidade ou melhoria, o chatbot ficará ainda mais completo.
 
